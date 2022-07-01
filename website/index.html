@@ -4,36 +4,51 @@
     <meta charset="UTF-8" />
     <link rel="shortcut icon" href="#" />
     <title>Weather Journal</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css"
-    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="app">
-      <div class="holder headline"><h1>Weather Journal App</h1></div>
-      <div class="holder zip">
-        <label for="zip">Enter Zipcode here</label>
-        <input type="text" id="zip" placeholder="enter zip code here" />
-      </div>
-      <div class="holder feel">
-        <label for="feelings">How are you feeling today?</label>
-        <textarea
-          class="myInput"
-          id="feelings"
-          placeholder="Enter your feelings here"
-          rows="9"
-          cols="50"
-        ></textarea>
-        <button id="generate" type="submit">Generate</button>
+      <div class="holder headline"><h1>Hong Kong Weather Journal App</h1></div>
+      <div class="holder input">
+        <div class="zip">
+          <label for="zip"><b>Enter Location Here</b></label>
+          <input
+            type="text"
+            id="location_input"
+            placeholder="Enter your location here (e.g. Tsuen Wan)"
+          />
+        </div>
+        <div class="feel">
+          <label for="feelings"><b>How are you feeling today?</b></label>
+          <textarea
+            class="myInput"
+            id="feelings"
+            placeholder="Enter your feelings here"
+            rows="9"
+            cols="50"
+          ></textarea>
+          <button id="generate" type="submit">Generate</button>
+        </div>
       </div>
       <div class="holder entry">
-        <div class="title">Most Recent Entry</div>
-        <div id="entryHolder">
+        <div class="title"><b>Most Recent Entry</b></div>
+        <div class="entryStyle" id="noEntry">There is no entry right now.</div>
+        <div class="entryStyle hide" id="entryHolder">
           <div id="date"></div>
-          <div id="temp"></div>
+          <div id="detail">
+            <img src="./images/location.png" alt="location icon" width="20" />
+            <span id="location"></span>
+            <span id="time"></span> |
+            <img
+              src="./images/thermometer.png"
+              alt="temperature icon"
+              width="20"
+            />
+            <span id="temp"></span>°C |
+            <img src="./images/humidity.png" alt="humidity icon" width="20" />
+            <span id="hum"></span>%
+          </div>
+          <hr />
           <div id="content"></div>
         </div>
       </div>
