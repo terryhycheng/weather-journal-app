@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="shortcut icon" href="#" />
     <title>Weather Journal</title>
     <link rel="stylesheet" href="style.css" />
@@ -11,15 +12,22 @@
       <div class="holder headline"><h1>Hong Kong Weather Journal App</h1></div>
       <div class="holder input">
         <div class="zip">
-          <label for="zip"><b>Enter Location Here</b></label>
-          <input
+          <label for="zip"><b>Select Location Here</b>*</label>
+          <!-- <input
             type="text"
             id="location_input"
             placeholder="Enter your location here (e.g. Tsuen Wan)"
-          />
+          /> -->
+          <select name="locations" id="location_input">
+            <option value="">Please select your location</option>
+            <!-- <option value="Hong Kong">Hong Kong</option>
+            <option value="New York City">New York City</option>
+            <option value="London">London</option>
+            <option value="Toronto">Toronto</option> -->
+          </select>
         </div>
         <div class="feel">
-          <label for="feelings"><b>How are you feeling today?</b></label>
+          <label for="feelings"><b>How are you feeling today?</b>*</label>
           <textarea
             class="myInput"
             id="feelings"
@@ -36,17 +44,25 @@
         <div class="entryStyle hide" id="entryHolder">
           <div id="date"></div>
           <div id="detail">
+            <!-- Location -->
             <img src="./images/location.png" alt="location icon" width="20" />
-            <span id="location"></span>
+            <span id="location"></span> |
+            <!-- Time -->
+            <img src="./images/clock.png" alt="time icon" width="20" />
             <span id="time"></span> |
+            <!-- Temperature -->
             <img
               src="./images/thermometer.png"
               alt="temperature icon"
               width="20"
             />
             <span id="temp"></span>°C |
+            <!-- Humidity -->
             <img src="./images/humidity.png" alt="humidity icon" width="20" />
-            <span id="hum"></span>%
+            <span id="hum"></span>% |
+            <!-- Brief Description -->
+            <img src="./images/cloudy.png" alt="weather icon" width="20" />
+            <span id="brief"></span>
           </div>
           <hr />
           <div id="content"></div>
