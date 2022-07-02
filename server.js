@@ -1,5 +1,5 @@
 // Setup empty JS object to act as endpoint for all routes
-let projectData = { temp: "32", hum: "84", brief: "Sunny" };
+let projectData = {};
 const port = 8000;
 
 //Global Variables
@@ -51,7 +51,7 @@ app.post("/api", (req, res) => {
   try {
     coordinates = req.body;
     updatedURL(coordinates, req.body.apiKey);
-    projectData = { ...projectData, url: api_url };
+    projectData = { url: api_url };
     res.send(projectData.url);
   } catch (error) {
     console.log("error from POST request:", error);
