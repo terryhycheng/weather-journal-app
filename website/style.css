@@ -4,52 +4,118 @@
 /* Variables */
 :root {
   --main-color: black;
-  --secondary-color: darkgrey;
-  --text-color: black;
+  --secondary-color: rgb(242, 242, 242);
+  --button-color: #1a202c;
+  --text-color: #1a202c;
   --background-color: white;
 }
 
 body {
+  display: flex;
+  justify-content: center;
   background: var(--background-color);
   font-family: "Inter", sans-serif;
+  /* width: 100vw; */
 }
 
 #app {
+  margin: 1rem;
   display: grid;
-  grid-auto-rows: minmax(150px, auto);
-  /* grid-template-columns:  */
-  height: 100vh;
+  grid-template-rows: minmax(150px, auto);
+  grid-template-columns: 30% 1fr;
+  grid-template-areas:
+    "tt input"
+    "ct ct";
   background: var(--background-color);
   color: var(--text-color);
   justify-content: center;
   grid-gap: 1em;
   font-size: 20px;
   font-family: "Oswald", sans-serif;
+  max-width: 1200px;
+  width: 100%;
 }
 
 .holder {
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+.input {
+  grid-area: input;
 }
 
 .entry {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  grid-area: ct;
+  padding: 2rem;
+}
+
+.zip {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+#zip {
+  padding: 1rem;
+}
+
+.entryStyle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   background: var(--secondary-color);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.hide {
+  display: none;
 }
 
 #entryHolder {
 }
 
 #date {
+  font-weight: 600;
+  font-size: 1.5rem;
 }
 
-#temp {
+#detail {
+  gap: 5px;
+  font-size: 1.1rem;
 }
 
 #content {
+  font-weight: 300;
+  font-size: 1.1rem;
+  word-wrap: break-word;
 }
 
 .headline {
+  display: flex;
+  align-items: center;
+  /* color: white; */
+  grid-area: "tt";
+  background-image: url("./images/dominik-schroder-FIKD9t5_5zQ-unsplash.jpeg");
+  background-size: cover;
+  background-position: center;
 }
 .title {
+  font-size: 1.5rem;
+}
+
+.feel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
@@ -60,35 +126,47 @@ label {
 
 input {
   display: block;
-  height: 60px;
-  width: 50%;
+  height: 40px;
   background: var(--secondary-color);
   color: var(--text-color);
   font-size: 1rem;
   font-family: "Oswald", sans-serif;
   border: none;
+  border-radius: 10px;
 }
 
 button {
-  width: 400px;
-  height: 100px;
-  background: var(--secondary-color);
-  color: var(--text-color);
-  font-size: 26px;
+  background: var(--button-color);
+  border-radius: 5px;
+  color: white;
+  font-size: 1.2rem;
   font-family: "Oswald", sans-serif;
   border: none;
+  padding: 1rem;
+  cursor: pointer;
 }
+
 h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 800;
 }
 
 textarea {
   background: var(--secondary-color);
   color: var(--text-color);
-  font-size: 20px;
+  font-size: 1rem;
   font-family: "Oswald", sans-serif;
+  border: none;
+  padding: 1rem;
+  border-radius: 10px;
+  resize: none;
 }
+
+hr {
+  border-top: 1px solid black;
+  width: 100%;
+}
+
 /* Reset style for HTML element on active to have no border*/
 input:focus,
 select:focus,
@@ -113,4 +191,19 @@ button:focus {
   /* Microsoft Edge */
   color: var(--text-color);
   font-family: "Oswald", sans-serif;
+}
+
+/* mobile */
+@media (max-width: 800px) {
+  #app {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "tt tt"
+      "input input"
+      "ct ct";
+    grid-gap: 15px 0;
+  }
+  .headline {
+    text-align: center;
+  }
 }
